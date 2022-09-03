@@ -12,16 +12,20 @@ class ActionsToolbar extends StatelessWidget {
   static const double kActionWidgetSize = 60.0;
 
 // The size of the icon showen for Social Actions
-  static const double kActionIconSize = 35.0;
+  static const double kActionIconSize = 40.0;
 
 // The size of the share social icon
   static const double kShareActionIconSize = 25.0;
 
 // The size of the profile image in the follow Action
-  static const double kProfileImageSize = 50.0;
+  static const double kProfileImageSize = 48.0;
 
 // The size of the plus icon under the profile image in follow action
   static const double kPlusIconSize = 20.0;
+
+  //picture url
+  static const String kPictureUrl =
+      "https://media-exp1.licdn.com/dms/image/C4D03AQGciJDIzpsfnw/profile-displayphoto-shrink_200_200/0/1661865090860?e=1667433600&v=beta&t=KOBMepGaAccKMS-s4GqXsSSeSSz5z8-gORlDvJ7DlzA";
 
   LinearGradient get musicGradient => LinearGradient(colors: [
         Colors.grey[700]!,
@@ -38,20 +42,24 @@ class ActionsToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 30.0),
+      alignment: Alignment.bottomRight,
+      margin: const EdgeInsets.only(bottom: 10.0),
       width: 100.0,
       color: Colors.transparent,
+      padding: const EdgeInsets.only(right: 7.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
           _getFollowAction(
-              pictureUrl:
-                  "https://media-exp1.licdn.com/dms/image/C4D03AQGciJDIzpsfnw/profile-displayphoto-shrink_200_200/0/1661865090860?e=1667433600&v=beta&t=KOBMepGaAccKMS-s4GqXsSSeSSz5z8-gORlDvJ7DlzA"),
+            pictureUrl: kPictureUrl,
+          ),
           _getSocialAction(icon: Icons.favorite_outlined, title: '3.2m'),
           _getSocialAction(icon: Icons.comment, title: '16.4k'),
-          _getSocialAction(icon: Icons.reply, title: 'Share'),
-          _getMusicPlayerAction(pictureUrl:
-          "https://media-exp1.licdn.com/dms/image/C4D03AQGciJDIzpsfnw/profile-displayphoto-shrink_200_200/0/1661865090860?e=1667433600&v=beta&t=KOBMepGaAccKMS-s4GqXsSSeSSz5z8-gORlDvJ7DlzA"),
+          _getSocialAction(icon: Icons.reply, title: '71k'),
+          _getMusicPlayerAction(
+            pictureUrl: kPictureUrl,
+          ),
         ],
       ),
     );
@@ -69,7 +77,7 @@ class ActionsToolbar extends StatelessWidget {
           Transform(
             alignment: Alignment.center,
             transform: Matrix4.rotationY(pi),
-            child: Icon(icon, size: 35.0, color: Colors.grey[300]),
+            child: Icon(icon, size: kActionIconSize, color: Colors.grey[300]),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 2.0),
@@ -160,4 +168,5 @@ class ActionsToolbar extends StatelessWidget {
       ),
     );
   }
+
 }
