@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_ui/widgets/actions_toolbar.dart';
 import 'package:tiktok_ui/widgets/bottom_toolbar.dart';
+import 'package:tiktok_ui/widgets/topsection.dart';
 import 'package:tiktok_ui/widgets/video_description.dart';
 
 void main() {
@@ -14,12 +15,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // Uncomment in phase 3 to apply white to text
         textTheme: Theme.of(context).textTheme.apply(
             bodyColor: Colors.white,
-            displayColor: Colors.white
+            displayColor: Colors.white,
         ),
       ),
       home: const MyHomePage(),
@@ -30,31 +32,36 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
+  static const String bgImageUrl = "assets/bg.jpg";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
-        children: <Widget>[
-          // Top section
-          topSection,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                bgImageUrl,
+            ),
+            fit: BoxFit.cover
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            // Top section
+            const TopSection(),
 
-          // Middle expanded
-          middleSection,
+            // Middle expanded
+            middleSection,
 
-          // Bottom Section
-          const BottomToolbar(),
-        ],
+            // Bottom Section
+            const BottomToolbar(),
+          ],
+        ),
       ),
     );
   }
-
-  Widget get topSection => Container(
-    height: 100.0,
-    padding: const EdgeInsets.only(bottom: 15.0),
-    color: Colors.yellow[300],
-  );
 
   Widget get middleSection => Expanded(
       child: Row(
