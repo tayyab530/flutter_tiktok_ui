@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_ui/tiktok_icons.dart';
 
 class VideoDescription extends StatelessWidget {
   const VideoDescription({Key? key}) : super(key: key);
@@ -29,11 +30,11 @@ class VideoDescription extends StatelessWidget {
               const Text('TikTok ui tutorial'),
               Row(children: const [
                 Icon(
-                  Icons.music_note,
-                  size: 15.0,
+                  TikTokIcons.musicIcon,
+                  size: 10.0,
                   color: Colors.white,
                 ),
-                Text('Tayyab - UI Tutorials - song',
+                Text('  Tayyab - UI Tutorials - song',
                     style: TextStyle(fontSize: 12.0))
               ]),
             ]),

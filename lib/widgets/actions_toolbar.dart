@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../tiktok_icons.dart';
 
@@ -54,9 +55,9 @@ class ActionsToolbar extends StatelessWidget {
           _getFollowAction(
             pictureUrl: kPictureUrl,
           ),
-          _getSocialAction(icon: Icons.favorite_outlined, title: '3.2m'),
-          _getSocialAction(icon: Icons.comment, title: '16.4k'),
-          _getSocialAction(icon: Icons.reply, title: '71k'),
+          _getSocialAction(icon: TikTokIcons.heartIcon, title: '3.2m'),
+          _getComment(icon: TikTokIcons.messageIcon, title: '16.4k'),
+          _getSocialAction(icon: TikTokIcons.shareIcon, title: '71k'),
           _getMusicPlayerAction(
             pictureUrl: kPictureUrl,
           ),
@@ -74,16 +75,36 @@ class ActionsToolbar extends StatelessWidget {
         width: 60.0,
         height: 60.0,
         child: Column(children: [
-          Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.rotationY(pi),
-            child: Icon(icon, size: kActionIconSize, color: Colors.grey[300]),
-          ),
+          Icon(icon, size: kActionIconSize, color: Colors.grey[300]),
           Padding(
             padding: const EdgeInsets.only(top: 2.0),
             child: Text(title, style: const TextStyle(fontSize: 12.0)),
           )
         ]));
+  }
+
+  Widget _getComment({
+    required String title,
+    required IconData icon,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20.0),
+      width: 60.0,
+      height: 60.0,
+      child: Column(
+        children: [
+          SvgPicture.asset(
+            "assets/messageIcon.svg",
+            semanticsLabel: 'Acme Logo',
+            color: Colors.grey[300],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 4.0),
+            child: Text(title, style: const TextStyle(fontSize: 12.0)),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _getFollowAction({required String pictureUrl}) {
@@ -131,11 +152,6 @@ class ActionsToolbar extends StatelessWidget {
           // import 'package:cached_network_image/cached_network_image.dart'; at the top to use CachedNetworkImage
           child: CircleAvatar(
             backgroundImage: NetworkImage(pictureUrl),
-            // child: CachedNetworkImage(
-            //   imageUrl: pictureUrl,
-            //   placeholder: (context, url) => const CircularProgressIndicator(),
-            //   errorWidget: (context, url, error) => const Icon(Icons.error),
-            // ),
           ),
         ));
   }
@@ -168,5 +184,4 @@ class ActionsToolbar extends StatelessWidget {
       ),
     );
   }
-
 }
