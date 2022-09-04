@@ -18,28 +18,46 @@ class BottomToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(bottom: 5,top: 10),
+      padding: const EdgeInsets.only(bottom: 5, top: 10),
       color: Colors.black,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:  [
+        children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: const [
-              Icon(TikTokIcons.homeSolidIcon, color: Colors.white, size: kNavigationIconSize,),
-              SizedBox(height: 4,),
-              Text("Home",style: TextStyle(fontSize: fontSize),)
+              Icon(
+                TikTokIcons.homeSolidIcon,
+                color: Colors.white,
+                size: kNavigationIconSize,
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              Text(
+                "Home",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: fontSize),
+              )
             ],
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SvgPicture.asset("assets/Search Icon.svg",
-                  semanticsLabel: ''),
-              const SizedBox(height: 4,),
-              const Text("Search",style: TextStyle(fontSize: fontSize),)
+              SvgPicture.asset(
+                "assets/Search Icon.svg",
+                semanticsLabel: '',
+                color: Colors.grey[300],
+              ),
+              const SizedBox(
+                height: 9,
+              ),
+              const Text(
+                "Search",
+                style: TextStyle(fontSize: fontSize),
+              )
             ],
           ),
           // const Icon(Icons.search_rounded,
@@ -49,24 +67,33 @@ class BottomToolbar extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Icon(TikTokIcons.messageStrokeIcon,
-                  color: Colors.white, size: kNavigationIconSize),
-              SizedBox(height: 4,),
-              Text("Inbox",style: TextStyle(fontSize: fontSize),)
+                  color: Colors.grey[300], size: kNavigationIconSize),
+              const SizedBox(
+                height: 4,
+              ),
+              const Text(
+                "Inbox",
+                style: TextStyle(fontSize: fontSize),
+              )
             ],
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: const [
+            children: [
               Icon(TikTokIcons.accountStrokeIcon,
-                  color: Colors.white, size: kNavigationIconSize),
-              SizedBox(height: 4,),
-              Text("Me",style: TextStyle(fontSize: fontSize),)
+                  color: Colors.grey[300], size: kNavigationIconSize),
+              const SizedBox(
+                height: 4,
+              ),
+              const Text(
+                "Me",
+                style: TextStyle(fontSize: fontSize),
+              )
             ],
           ),
-
         ],
       ),
     );
@@ -75,32 +102,29 @@ class BottomToolbar extends StatelessWidget {
   Widget get customCreateIcon => SizedBox(
       width: 45.0,
       height: 27.0,
-      child: Stack(
-          children:[
-            Container(
-                margin: const EdgeInsets.only(left: 10.0),
-                width: kCreateButtonWidth,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 250, 45, 108),
-                    borderRadius: BorderRadius.circular(7.0)
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(right: 10.0),
-                width: kCreateButtonWidth,
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 32, 211, 234),
-                    borderRadius: BorderRadius.circular(7.0)
-                )),
-            Center(child:Container(
-              height: double.infinity,
-              width: kCreateButtonWidth,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(7.0)
-              ),
-              child: const Icon(Icons.add, size: 15.0,),
-            )),
-          ]
-      ));
+      child: Stack(children: [
+        Container(
+            margin: const EdgeInsets.only(left: 10.0),
+            width: kCreateButtonWidth,
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 250, 45, 108),
+                borderRadius: BorderRadius.circular(7.0))),
+        Container(
+            margin: const EdgeInsets.only(right: 10.0),
+            width: kCreateButtonWidth,
+            decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 32, 211, 234),
+                borderRadius: BorderRadius.circular(7.0))),
+        Center(
+            child: Container(
+          height: double.infinity,
+          width: kCreateButtonWidth,
+          decoration: BoxDecoration(
+              color: Colors.white, borderRadius: BorderRadius.circular(7.0)),
+          child: const Icon(
+            Icons.add,
+            size: 15.0,
+          ),
+        )),
+      ]));
 }

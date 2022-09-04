@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Flutter TitTok UI',
       theme: ThemeData(
         // Uncomment in phase 3 to apply white to text
         textTheme: Theme.of(context).textTheme.apply(
-            bodyColor: Colors.white,
+            bodyColor: Colors.grey[300],
             displayColor: Colors.white,
         ),
       ),
@@ -51,10 +51,8 @@ class MyHomePage extends StatelessWidget {
           children: <Widget>[
             // Top section
             const TopSection(),
-
             // Middle expanded
             middleSection,
-
             // Bottom Section
             const BottomToolbar(),
           ],

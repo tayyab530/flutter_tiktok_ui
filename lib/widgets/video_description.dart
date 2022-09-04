@@ -27,14 +27,14 @@ class VideoDescription extends StatelessWidget {
                   badge,
                 ],
               ),
-              const Text('TikTok ui tutorial'),
-              Row(children: const [
+              const Text('Never Stop Learning ... TikTok'),
+              Row(children: [
                 Icon(
                   TikTokIcons.musicIcon,
                   size: 10.0,
-                  color: Colors.white,
+                  color: Colors.grey[300],
                 ),
-                Text('  Tayyab - UI Tutorials - song',
+                const Text('  Victory - @Ever Live - song',
                     style: TextStyle(fontSize: 12.0))
               ]),
             ]),
@@ -46,7 +46,7 @@ class VideoDescription extends StatelessWidget {
     alignment: Alignment.center,
     children: [
       Container(
-        padding: EdgeInsets.all(1),
+        padding: const EdgeInsets.all(1),
         height: kSizeOfCheckIcon,
         width: kSizeOfCheckIcon,
         decoration: const BoxDecoration(

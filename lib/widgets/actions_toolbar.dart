@@ -56,8 +56,9 @@ class ActionsToolbar extends StatelessWidget {
             pictureUrl: kPictureUrl,
           ),
           _getSocialAction(icon: TikTokIcons.heartIcon, title: '3.2m'),
-          _getComment(icon: TikTokIcons.messageIcon, title: '16.4k'),
-          _getSocialAction(icon: TikTokIcons.shareIcon, title: '71k'),
+          _getComment(title: '16.4k'),
+          _getSocialAction(
+              icon: TikTokIcons.shareIcon, title: '71k', isShare: true),
           _getMusicPlayerAction(
             pictureUrl: kPictureUrl,
           ),
@@ -69,15 +70,22 @@ class ActionsToolbar extends StatelessWidget {
   Widget _getSocialAction({
     required String title,
     required IconData icon,
+    bool isShare = false,
   }) {
+    double rightOffset = isShare ? 5.0 : 0;
+
     return Container(
         margin: const EdgeInsets.only(top: 15.0),
         width: 60.0,
         height: 60.0,
         child: Column(children: [
-          Icon(icon, size: kActionIconSize, color: Colors.grey[300]),
+          Container(
+              padding: EdgeInsets.only(right: rightOffset),
+              child: Icon(icon,
+                  size: kActionIconSize + (isShare ? -4 : 0),
+                  color: Colors.grey[300])),
           Padding(
-            padding: const EdgeInsets.only(top: 2.0),
+            padding: EdgeInsets.only(top: 2.0),
             child: Text(title, style: const TextStyle(fontSize: 12.0)),
           )
         ]));
@@ -85,7 +93,6 @@ class ActionsToolbar extends StatelessWidget {
 
   Widget _getComment({
     required String title,
-    required IconData icon,
   }) {
     return Container(
       margin: const EdgeInsets.only(top: 20.0),
